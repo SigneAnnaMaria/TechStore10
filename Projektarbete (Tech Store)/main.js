@@ -1,5 +1,5 @@
 var listOfProducts;
-const productsList = document.querySelector(".products");
+const productsList = document.querySelector(".products"); // hämtar products-diven från htmlkoden och sparar den i en variabel
 
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
@@ -22,8 +22,19 @@ function initSite() {
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
     // Check your console to see that the products are stored in the listOfProducts varible.
-    console.log(listOfProducts);
-    productsList.innerHTML(listOfProducts) 
+    listOfProducts.forEach(product => { //loopen som går igenom varje product
+        //hämtar från "product" och lägger in produktobjekten i egna element i våran "productList"-div
+        productsList.innerHTML += `
+        <div>
+            <h1 class="hej">${product.title}</h1>
+            <p>${product.description}</p>
+            <img src="${product.image}" alt="${product.title}">
+            <h3>${product.price}</h3>
+        </div>
+
+    `;
+    });
+    
 
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
@@ -31,4 +42,3 @@ function addProductsToWebpage() {
     
     // TODO: Remove the console.log and these comments when you've read them.
 }
-
