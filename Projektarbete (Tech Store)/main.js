@@ -1,4 +1,5 @@
 var listOfProducts;
+const productsList = document.querySelector(".products");
 
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
@@ -22,6 +23,7 @@ function initSite() {
 function addProductsToWebpage() {
     // Check your console to see that the products are stored in the listOfProducts varible.
     console.log(listOfProducts);
+    productsList.innerHTML(listOfProducts) 
 
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
@@ -29,3 +31,4 @@ function addProductsToWebpage() {
     
     // TODO: Remove the console.log and these comments when you've read them.
 }
+
