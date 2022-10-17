@@ -1,5 +1,5 @@
 var listOfProducts;
-const productsList = document.querySelector(".products"); // hämtar products-diven från htmlkoden och sparar den i en variabel
+const productsList = document.querySelector(".productsContainer"); // hämtar products-diven från htmlkoden och sparar den i en variabel
 
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
@@ -25,11 +25,12 @@ function addProductsToWebpage() {
     listOfProducts.forEach(product => { //loopen som går igenom varje product
         //hämtar från "product" och lägger in produktobjekten i egna element i våran "productList"-div
         productsList.innerHTML += `
-        <div>
-            <h1 class="hej">${product.title}</h1>
-            <p>${product.description}</p>
-            <img src="${product.image}" alt="${product.title}">
-            <h3>${product.price}</h3>
+        <div class="product">
+            <h1 class="titleProduct">${product.title}</h1>
+            <p class="descriptionProduct">${product.description}</p>
+            <img class="imageProduct" src="${product.image}" alt="${product.title}">
+            <h3 class="priceProduct">${product.price} kr</h3>
+            <button class="buttonProduct"> O Lägg till i kundvagnen</button>
         </div>
 
     `;
