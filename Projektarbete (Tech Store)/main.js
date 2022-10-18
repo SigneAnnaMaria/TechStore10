@@ -38,12 +38,32 @@ function addProductsToWebpage() {
 }
 
 
-function addToCart(index) {
 
-    const item = listOfProducts.find((product) => index === product);
-    console.log(item)
+const cart =[];
+
+function addToCart(hej) {
+
+    // listOfProducts.forEach((product) => { //loopen som går igenom varje product
+    //     //hämtar från "product" och lägger in produktobjekten i egna element i våran "productList"-div
+    //     cart.push(product);
     
-}
+    // }
+    console.log(hej)
+} 
+
+
+
+// if (index == product) {        
+    //     cart.push(product);
+    // } else {
+    //     console.log("fail")
+    // }
+
+    // const item = listOfProducts.find((product) => index === index);
+
+
+    
+
 
 // Add your code here, remember to brake your code in to smaller function blocks
 // to reduce complexity and increase readability. Each function should have
