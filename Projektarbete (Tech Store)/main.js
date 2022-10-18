@@ -30,22 +30,19 @@ function addProductsToWebpage() {
             <p class="descriptionProduct">${product.description}</p>
             <img id="img${index}"class="imageProduct" src="${product.image}" alt="${product.title}">
             <h3 class="priceProduct">${product.price} kr</h3>
-            <button id="button${index}" class="buttonProduct"><a class="buttonCart"><i class="fa-solid fa-cart-arrow-down"></i></a>Lägg till i kundvagnen</button>
+            <button class="buttonProduct" onclick="addToCart(${index})"><a class="buttonCart"><i class="fa-solid fa-cart-arrow-down"></i></a>Lägg till i kundvagnen</button>
         </div>
 
     `;
     });
 }
 
-const btnProduct = document.querySelectorAll(".buttonProduct");
-btnProduct.addEventListener("click", addToCart());
 
-function addToCart() {
+function addToCart(index) {
+
+    const item = listOfProducts.find((product) => index === product);
+    console.log(item)
     
-    listOfProducts.forEach((product) => {
-        btnProduct.index === product.index
-        console.log(product.index)
-    })
 }
 
 // Add your code here, remember to brake your code in to smaller function blocks
