@@ -22,15 +22,15 @@ function initSite() {
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
     // Check your console to see that the products are stored in the listOfProducts varible.
-    listOfProducts.forEach(product => { //loopen som går igenom varje product
+    listOfProducts.forEach((product,index) => { //loopen som går igenom varje product
         //hämtar från "product" och lägger in produktobjekten i egna element i våran "productList"-div
         productsList.innerHTML += `
         <div class="product">
             <h1 class="titleProduct">${product.title}</h1>
             <p class="descriptionProduct">${product.description}</p>
-            <img class="imageProduct" src="${product.image}" alt="${product.title}">
+            <img id="img${index}"class="imageProduct" src="${product.image}" alt="${product.title}">
             <h3 class="priceProduct">${product.price} kr</h3>
-            <button class="buttonProduct"> O Lägg till i kundvagnen</button>
+            <button id="button${index}" class="buttonProduct"><a class="buttonCart"><i class="fa-solid fa-cart-arrow-down"></i></a>Lägg till i kundvagnen</button>
         </div>
 
     `;
