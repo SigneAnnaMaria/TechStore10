@@ -16,8 +16,12 @@ function loadProducts() {
 
 function initSite() {
     loadProducts();
-    // This would also be a good place to initialize other parts of the UI
+    //If the key "item" is not in LS, this statement creates the key "item" with the value of "cart"   
+    if (!localStorage.getItem("item")) { 
+        localStorage.setItem("item", JSON.stringify(cart));
 }
+}
+
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
@@ -37,23 +41,20 @@ function addProductsToWebpage() {
     });
 }
 
+//Empty array where the products are stored in LS
 const cart = [];
 
-function addToCart(number) {
+//Function add products to cart
+function addToCart(index) {
 
-    listOfProducts.forEach((sak) => {
-        if (number = sak) {
-            cart.push(sak)
-         } else {
-            console.log ("fail")
-         }
-
+    listOfProducts.forEach((product) => { //Loops through list of products
+    if (listOfProducts.indexOf(product) == index) { //If index of product match button index...
+        const newItem = JSON.parse(localStorage.getItem("item")); //Store "item" from LS in the variable "newItem" 
+        newItem.push(product); //Pushes product to "newItem"
+        localStorage.setItem("item", JSON.stringify(newItem)); //Sends back added value to the key "item" in LS
     }
-    
-    
+    }
     )
-    console.log(cart)
-    
 }
 
 // Add your code here, remember to brake your code in to smaller function blocks
