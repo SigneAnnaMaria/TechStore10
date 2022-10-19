@@ -37,33 +37,24 @@ function addProductsToWebpage() {
     });
 }
 
+const cart = [];
 
+function addToCart(number) {
 
-const cart =[];
+    listOfProducts.forEach((sak) => {
+        if (number = sak) {
+            cart.push(sak)
+         } else {
+            console.log ("fail")
+         }
 
-function addToCart(hej) {
-
-    // listOfProducts.forEach((product) => { //loopen som går igenom varje product
-    //     //hämtar från "product" och lägger in produktobjekten i egna element i våran "productList"-div
-    //     cart.push(product);
+    }
     
-    // }
-    console.log(hej)
-} 
-
-
-
-// if (index == product) {        
-    //     cart.push(product);
-    // } else {
-    //     console.log("fail")
-    // }
-
-    // const item = listOfProducts.find((product) => index === index);
-
-
     
-
+    )
+    console.log(cart)
+    
+}
 
 // Add your code here, remember to brake your code in to smaller function blocks
 // to reduce complexity and increase readability. Each function should have
