@@ -24,6 +24,10 @@ function initSite() {
         localStorage.setItem("itemsInCart", JSON.stringify(cartValues))
     }
 
+    initCart(); //calls on function that sets the cart number on index.html
+}
+
+function initCart() { // loads "onload" in shoppingCart.html to set cart number.
     const num = JSON.parse(localStorage.getItem("itemsInCart")) // gets key "itemsInCart" fom LS and stores it into a variable "num"
     if (num.length > 0) { // if num length is bigger than 0
         cartValue.innerHTML = (num.length) // display "num" length (current items in cart in LS) in header
@@ -41,7 +45,7 @@ function addProductsToWebpage() {
             <p class="descriptionProduct">${product.description}</p>
             <img id="img${index}"class="imageProduct" src="${product.image}" alt="${product.title}">
             <h3 class="priceProduct">${product.price} kr</h3>
-            <button class="buttonProduct" onclick="addToCart(${index})"><a class="buttonCart"><i class="fa-solid fa-cart-arrow-down"></i></a>Lägg till i kundvagnen</button>
+            <button class="buttonProduct" onclick="addToCart(${index})"><a class="cartInBtn"><i class="fa-solid fa-cart-arrow-down"></i></a>Lägg till i kundvagnen</button>
         </div>
 
     `;
@@ -73,6 +77,41 @@ function addToCart(index) {
     )
 }
 /* console.log(cartValue) */
+
+// cart JS
+
+const mobileContainer = document.querySelector(".mobileContainer")
+
+const getElementFromLS = JSON.parse(localStorage.getItem("item"));
+    getElementFromLS.forEach((product) => {
+    const mobile = document.createElement("div")
+    const img = document.createElement("img")
+    const title = document.createElement("h1")
+    const price = document.createElement("p")
+    const btn = document.createElement("button")
+
+    btn.setAttribute("class", "removeBtn")
+    price.setAttribute("class", "cartPrice")
+    title.setAttribute("class", "cartTitle")
+    img.setAttribute("src", product.image)
+    img.setAttribute("class", "cartImg")
+    mobile.setAttribute("class", "mobile")
+
+    title.innerHTML = product.title
+    price.innerHTML = product.price
+    btn.innerHTML = "Ta bort"
+
+    mobile.appendChild(img)
+    mobile.appendChild(title)
+    mobile.appendChild(price)
+    mobile.appendChild(btn)
+    mobileContainer.appendChild(mobile)
+
+
+    console.log(getElementFromLS)
+}) 
+
+
 
 // Add your code here, remember to brake your code in to smaller function blocks
 // to reduce complexity and increase readability. Each function should have
