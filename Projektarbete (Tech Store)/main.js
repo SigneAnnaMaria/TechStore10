@@ -86,19 +86,23 @@ const getElementFromLS = JSON.parse(localStorage.getItem("item"));
     getElementFromLS.forEach((product) => {
     const mobile = document.createElement("div")
     const img = document.createElement("img")
-    const title = document.createElement("h1")
-    const price = document.createElement("p")
+    const title = document.createElement("h2")
+    const price = document.createElement("h6")
     const btn = document.createElement("button")
+    const trash = document.createElement("a")
+    const trashIcon = document.createElement("i")
 
-    btn.setAttribute("class", "removeBtn")
-    price.setAttribute("class", "cartPrice")
-    title.setAttribute("class", "cartTitle")
+    mobile.setAttribute("class", "mobile")
     img.setAttribute("src", product.image)
     img.setAttribute("class", "cartImg")
-    mobile.setAttribute("class", "mobile")
+    title.setAttribute("class", "cartTitle")
+    price.setAttribute("class", "cartPrice")
+    btn.setAttribute("class", "removeBtn")
+    trash.setAttribute("class", "trash")
+    trashIcon.setAttribute("class", "fa-regular fa-trash-can")
 
     title.innerHTML = product.title
-    price.innerHTML = product.price
+    price.innerHTML = product.price + " kr"
     btn.innerHTML = "Ta bort"
 
     mobile.appendChild(img)
@@ -106,6 +110,8 @@ const getElementFromLS = JSON.parse(localStorage.getItem("item"));
     mobile.appendChild(price)
     mobile.appendChild(btn)
     mobileContainer.appendChild(mobile)
+    trash.appendChild(trashIcon)
+    btn.appendChild(trash)
 
 
     console.log(getElementFromLS)
