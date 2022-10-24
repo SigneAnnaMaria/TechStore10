@@ -57,14 +57,14 @@ header {
     align-items: center;
 }
 
-h2 { /* Cart */
+.cartH1 { /* Cart */
     font-family: Arial, Helvetica, sans-serif;
     margin: 2rem;
 }
 
 .cartContainer { /* Cart */
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     margin-top: 4rem;
     display: flex;
     flex-direction: column;
@@ -72,10 +72,11 @@ h2 { /* Cart */
 }
 
 .mobileContainer { /* Cart */
-    width: 70%;
+    max-width: 50rem;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .mobile { /* Cart */
@@ -85,6 +86,7 @@ h2 { /* Cart */
     height: 14rem;
     border: solid 2px #4c7bc3;
     border-radius: 10px;
+    margin: 0.5rem;
 }
 
 .totalPrice { /* Cart */
@@ -136,13 +138,27 @@ h2 { /* Cart */
     border-radius: 6px;
     border: none;
     background-color: rgb(99,151,237);
-    width: 14rem;
-    height: 2.3rem;
     font-size: 95%;
     display: flex;
     justify-content: space-evenly; 
     align-items: center;
     padding: 1rem;
+}
+
+.buttonProduct {
+    width: 14rem;
+    height: 2.3rem;
+}
+
+.buyBtn {
+    width: 10rem;
+    height: 2.3rem;
+}
+
+.boldify {
+    font-size: large;
+    margin-top: 0.2rem;
+    margin-right: 0.3rem;
 }
 
 .buttonCart {
