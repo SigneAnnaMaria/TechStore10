@@ -83,6 +83,8 @@ function addToCart(index) {
 const mobileContainer = document.querySelector(".mobileContainer")
 
 const getElementFromLS = JSON.parse(localStorage.getItem("item"));
+
+
     getElementFromLS.forEach((product) => {
     const mobile = document.createElement("div")
     const img = document.createElement("img")
@@ -114,6 +116,25 @@ const getElementFromLS = JSON.parse(localStorage.getItem("item"));
     btn.appendChild(trash)
 
 }) 
+
+const removeBtn = document.querySelectorAll(".removeBtn")
+
+for (const btn of removeBtn) {
+    btn.addEventListener("click", removeItem)
+    
+    function removeItem(e) {
+        const array = JSON.parse(localStorage.getItem("item"));
+        array.splice(e)
+        console.log(array)
+//         removeFromLS.forEach((product) => {
+//         if (removeFromLS.indexOf(product) = e){
+//             removeFromLS.splice(product)
+//             localStorage.setItem("item", JSON.stringify(removeFromLS))
+        // }
+    }
+    // }
+}
+    
 
 const totalPrice = document.querySelector(".totalPrice")
 const getTotalPrice = JSON.parse(localStorage.getItem("item"));

@@ -193,6 +193,7 @@ header {
 }
 
 .buyBtn {
+    margin-bottom: 4rem;
     width: 10rem;
     height: 2.3rem;
 }
