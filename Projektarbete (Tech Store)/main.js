@@ -87,7 +87,7 @@ const getElementFromLS = JSON.parse(localStorage.getItem("item"));
     const mobile = document.createElement("div")
     const img = document.createElement("img")
     const title = document.createElement("h2")
-    const price = document.createElement("h6")
+    const price = document.createElement("h5")
     const btn = document.createElement("button")
     const trash = document.createElement("a")
     const trashIcon = document.createElement("i")
@@ -113,12 +113,15 @@ const getElementFromLS = JSON.parse(localStorage.getItem("item"));
     trash.appendChild(trashIcon)
     btn.appendChild(trash)
 
-
-    console.log(getElementFromLS)
 }) 
 
-
-
+const totalPrice = document.querySelector(".totalPrice")
+const getTotalPrice = JSON.parse(localStorage.getItem("item"));
+let sum = 0;
+getTotalPrice.forEach((product) => {
+  sum += product.price
+  totalPrice.innerHTML = "Totalt pris: " + sum + " kr"
+})
 // Add your code here, remember to brake your code in to smaller function blocks
 // to reduce complexity and increase readability. Each function should have
 // an explainetory comment like the one for this function, see row 22.
