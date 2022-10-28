@@ -82,59 +82,56 @@ function addToCart(index) {
 
 const mobileContainer = document.querySelector(".mobileContainer")
 
-const getElementFromLS = JSON.parse(localStorage.getItem("item"));
+function yeah() {
+    mobileContainer.innerHTML = ""
+    const getElementFromLS = JSON.parse(localStorage.getItem("item"));
+        getElementFromLS.forEach((product, index) => {
+        const mobile = document.createElement("div")
+        const img = document.createElement("img")
+        const title = document.createElement("h2")
+        const price = document.createElement("h5")
+        const btn = document.createElement("button")
+        const trash = document.createElement("a")
+        const trashIcon = document.createElement("i")
 
+        mobile.setAttribute("class", "mobile")
+        img.setAttribute("src", product.image)
+        img.setAttribute("class", "cartImg")
+        title.setAttribute("class", "cartTitle")
+        price.setAttribute("class", "cartPrice")
+        btn.setAttribute("class", "removeBtn")
+        btn.setAttribute("id", index)
+        trash.setAttribute("class", "trash")
+        trashIcon.setAttribute("class", "fa-regular fa-trash-can")
 
-    getElementFromLS.forEach((product) => {
-    const mobile = document.createElement("div")
-    const img = document.createElement("img")
-    const title = document.createElement("h2")
-    const price = document.createElement("h5")
-    const btn = document.createElement("button")
-    const trash = document.createElement("a")
-    const trashIcon = document.createElement("i")
+        title.innerHTML = product.title
+        price.innerHTML = product.price + " kr"
+        btn.innerHTML = "Ta bort"
 
-    mobile.setAttribute("class", "mobile")
-    img.setAttribute("src", product.image)
-    img.setAttribute("class", "cartImg")
-    title.setAttribute("class", "cartTitle")
-    price.setAttribute("class", "cartPrice")
-    btn.setAttribute("class", "removeBtn")
-    trash.setAttribute("class", "trash")
-    trashIcon.setAttribute("class", "fa-regular fa-trash-can")
+        mobile.appendChild(img)
+        mobile.appendChild(title)
+        mobile.appendChild(price)
+        mobile.appendChild(btn)
+        mobileContainer.appendChild(mobile)
+        trash.appendChild(trashIcon)
+        btn.appendChild(trash)
 
-    title.innerHTML = product.title
-    price.innerHTML = product.price + " kr"
-    btn.innerHTML = "Ta bort"
+        btn.addEventListener("click", () => {
+            cont(product)
+        });
 
-    mobile.appendChild(img)
-    mobile.appendChild(title)
-    mobile.appendChild(price)
-    mobile.appendChild(btn)
-    mobileContainer.appendChild(mobile)
-    trash.appendChild(trashIcon)
-    btn.appendChild(trash)
-
-}) 
-
-const removeBtn = document.querySelectorAll(".removeBtn")
-
-for (const btn of removeBtn) {
-    btn.addEventListener("click", removeItem)
-    
-    function removeItem(e) {
-        const array = JSON.parse(localStorage.getItem("item"));
-        array.splice(e)
-        console.log(array)
-//         removeFromLS.forEach((product) => {
-//         if (removeFromLS.indexOf(product) = e){
-//             removeFromLS.splice(product)
-//             localStorage.setItem("item", JSON.stringify(removeFromLS))
-        // }
-    }
-    // }
+    })
 }
-    
+
+const removeFromLS = JSON.parse(localStorage.getItem("itemsInCart"));
+
+function cont(product) {
+    const cart = JSON.parse(localStorage.getItem("item"));
+    const index = cart.findIndex(item => product.title == item.title)
+    cart.splice(index, 1)
+    localStorage.setItem("item", JSON.stringify(cart))
+    yeah()
+}  
 
 const totalPrice = document.querySelector(".totalPrice")
 const getTotalPrice = JSON.parse(localStorage.getItem("item"));
