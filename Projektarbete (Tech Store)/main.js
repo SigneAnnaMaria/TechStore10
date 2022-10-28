@@ -131,7 +131,7 @@ function cont(product) {
     cart.splice(index, 1)
     localStorage.setItem("item", JSON.stringify(cart))
     yeah()
-}
+}  
 
 const totalPrice = document.querySelector(".totalPrice")
 const getTotalPrice = JSON.parse(localStorage.getItem("item"));
