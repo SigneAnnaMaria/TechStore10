@@ -20,7 +20,7 @@
     <script src="cart.js"></script>
 </head>
 
-<body onload="initCart(), yeah()">
+<body onload="initCart(), createCartProduct()">
     <header>
         <h1 class="logoWhite"><a class="logoLink" href="index.html">TechStore</a></h1>
         <div class="headerIcons">
@@ -33,13 +33,9 @@
     <main class="cartContainer">
         <h1 class="cartH1"><i class="fa-solid fa-cart-shopping"></i> Kundvagn</h1>
         <div class="mobileContainer">
-<!--             <div class="mobile"></div>
-            <div class="mobile"></div>
-            <div class="mobile"></div>
-            <div class="mobile"></div> -->
         </div>
         <p class="totalPrice"></p>
-        <button class="buyBtn"><a class="CheckIconBtn"><i class="fa-solid fa-check"></i></a> Slutför ditt köp</button>  
+        <button class="buyBtn" onclick="finish()"><a class="CheckIconBtn"><i class="fa-solid fa-check"></i></a> Slutför ditt köp</button>  
     </main>
 </body>
 
