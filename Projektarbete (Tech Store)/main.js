@@ -1,6 +1,6 @@
 var listOfProducts;
-const productsList = document.querySelector(".productsContainer"); // hämtar products-diven från htmlkoden och sparar den i en variabel
-const cartValue = document.querySelector(".cartValue") // gets div from index.html and stores it inside the variable "cartValue" 
+const productsList = document.querySelector(".productsContainer"); //gets product-div from index.html och saves it in a variable
+const cartNumb = document.querySelector(".cartValue") // gets div from index.html and stores it inside the variable "cartValue" 
 
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
@@ -17,21 +17,11 @@ function loadProducts() {
 
 function initSite() {
     loadProducts();
-    //If the keys "item" and "itemsInCart" are not in LS, this statement creates the key "item" with the value of "cart", and the key "itemsInCart" with the value of "cartValues"
-    if ((!localStorage.getItem("item")) && (!localStorage.getItem("itemsInCart"))) {
-
+    //If the key "item" is not in LS, this statement creates the key "item" with the value of "cart"
+    if (!localStorage.getItem("item")){
         localStorage.setItem("item", JSON.stringify(cart));
-        localStorage.setItem("itemsInCart", JSON.stringify(cartValues))
     }
-
-    initCart(); //calls on function that sets the cart number on index.html
-}
-
-function initCart() { // loads "onload" in shoppingCart.html to set cart number.
-    const num = JSON.parse(localStorage.getItem("itemsInCart")) // gets key "itemsInCart" fom LS and stores it into a variable "num"
-    if (num.length > 0) { // if num length is bigger than 0
-        cartValue.innerHTML = (num.length) // display "num" length (current items in cart in LS) in header
-    }
+    
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
@@ -52,6 +42,14 @@ function addProductsToWebpage() {
     });
 }
 
+function initCart() { // loads "onload" in shoppingCart.html to set cart number.
+    const num = JSON.parse(localStorage.getItem("item")) // gets key "itemsInCart" fom LS and stores it into a variable "num"
+    if (num.length > 0) { // if num length is bigger than 0
+        cartNumb.innerHTML = (num.length) // display "num" length (current items in cart in LS) in header
+    } else {
+        cartNumb.innerHTML = ""}
+}
+
 //Empty array where the products are stored in LS
 const cart = [];
 
@@ -66,15 +64,9 @@ function addToCart(index) {
             const newItem = JSON.parse(localStorage.getItem("item")); //Store "item" from LS in the variable "newItem" 
             newItem.push(product); //Pushes product to "newItem"
             localStorage.setItem("item", JSON.stringify(newItem)); //Sends back added value to the key "item" in LS
-
-            const cartNum = JSON.parse(localStorage.getItem("itemsInCart")); // gets key "itemsInCart" fom LS and stores it into a variable "cartNum"
-            cartNum.push(newItem.length); // pushes the length of "newItems" (the numer of products stored in LS) into "cartNum"
-            cartValue.innerHTML = (cartNum.length); // this insirt the length of "cartNum" into the div "cartValue" in index.html
-            localStorage.setItem("itemsInCart", JSON.stringify(cartNum));
-
         }
-    }
-    )
+    })
+    initCart(); //calls on function that sets the cart number on index.html
 }
 /* console.log(cartValue) */
 
@@ -120,7 +112,11 @@ function yeah() {
             cont(product)
         });
 
+        localStorage.setItem("item", JSON.stringify(getElementFromLS));
+
     })
+    getTotalPrice()
+    initCart();
 }
 
 const removeFromLS = JSON.parse(localStorage.getItem("itemsInCart"));
@@ -131,15 +127,20 @@ function cont(product) {
     cart.splice(index, 1)
     localStorage.setItem("item", JSON.stringify(cart))
     yeah()
+    
 }  
 
-const totalPrice = document.querySelector(".totalPrice")
-const getTotalPrice = JSON.parse(localStorage.getItem("item"));
-let sum = 0;
-getTotalPrice.forEach((product) => {
-  sum += product.price
-  totalPrice.innerHTML = "Totalt pris: " + sum + " kr"
-})
+function getTotalPrice() {
+
+    const totalPrice = document.querySelector(".totalPrice")
+    totalPrice.innerHTML = "Din varukorg är tom"
+    const getTotalPrice = JSON.parse(localStorage.getItem("item"));
+    var sum = 0;
+    getTotalPrice.forEach((product) => {
+            sum += product.price;
+            totalPrice.innerHTML = "Totalt pris: " + sum + " kr";
+       })
+}
 // Add your code here, remember to brake your code in to smaller function blocks
 // to reduce complexity and increase readability. Each function should have
 // an explainetory comment like the one for this function, see row 22.
