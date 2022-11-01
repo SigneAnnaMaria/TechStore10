@@ -1,0 +1,55 @@
+.formContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logInForm, .signUpForm {
+    background-color: #f5f5f5;
+    border: solid 1px;
+    border-radius: 10px;
+    width: 15rem;
+    height: 27rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.newUserBtn, .submitLogIn {
+    color: #f5f5f5;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    border: none;
+    background-color: #212121;
+    font-size: 95%;
+    padding: 0.7rem;
+    width: 12rem;
+    height: 2.6rem;
+}
+
+.newUserBtn:hover, .submitLogIn:hover {
+    background-color: rgb(99,151,237);
+    color: white;
+}
+
+.submitLogIn {
+    margin: 1.5rem 0 2rem 0;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+input {
+    border-radius: 6px;
+    border: solid 1px;
+    height: 2rem;
+    margin-top: 1rem; 
+    width: 12rem;
+}
