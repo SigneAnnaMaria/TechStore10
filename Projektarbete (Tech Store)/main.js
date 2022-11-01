@@ -47,17 +47,18 @@ function addProductsToWebpage() {
 
 // This function is initiated in shoppingcart.html, and it looks for the key "item" from LS.
 //If the number in LS is bigger than 0 we print that number, else we print an empty string.
-function initCart() {
+function initCartNum() {
     const num = JSON.parse(localStorage.getItem("item")) 
     if (num.length > 0) {
         cartNumb.innerHTML = (num.length)
     } else {
-        cartNumb.innerHTML = ""}
+        cartNumb.innerHTML = ""
+    }
 }
 
 // This function adds the chosen product to the cart by looping through the list of products from JSON and compares it to the button index.
 // If they match, the item is pushed in to the variable newItem, and then returns the updated value to the  key "Item" in LS.
-// We then call on the function initCart() to update the number in header-cart.
+// We then call on the function initCartNum() to update the number in header-cart.
 function addToCart(index) {
     listOfProducts.forEach((product) => { 
         if (listOfProducts.indexOf(product) == index) {
@@ -66,7 +67,7 @@ function addToCart(index) {
             localStorage.setItem("item", JSON.stringify(newItem));
         }
     })
-    initCart();
+    initCartNum();
 }
 
 // A function that creates elements for each object inside the JSON array and then sets an attribute to each variable.
@@ -105,33 +106,35 @@ function createCartProduct() {
         
         // attaches div "mobile" inside the div "mobileContainer" from shoppingcart.html
         mobileContainer.appendChild(mobile)
+        // attaches icon to an <a> link "trash" so we can manipulate it in css
         trash.appendChild(trashIcon)
+        // attaches it to the btn element
         btn.appendChild(trash)
 
+        // when "Ta bort"-button is clicked, removeFromCart function is triggered
         btn.addEventListener("click", () => {
-            cont(product)
+            removeFromCart(product)
         });
 
+        // updates the value of the key "item" in LS 
         localStorage.setItem("item", JSON.stringify(getElementFromLS));
 
     })
     getTotalPrice()
-    initCart();
+    initCartNum();
 }
 
-const removeFromLS = JSON.parse(localStorage.getItem("itemsInCart"));
-
-function cont(product) {
+// function that removes specified product from cart when clicked "Ta bort"-button
+function removeFromCart(product) {
     const cart = JSON.parse(localStorage.getItem("item"));
     const index = cart.findIndex(item => product.title == item.title)
     cart.splice(index, 1)
     localStorage.setItem("item", JSON.stringify(cart))
     createCartProduct()
-    
 }  
 
+// function that updates the total price in the shopping cart
 function getTotalPrice() {
-
     const totalPrice = document.querySelector(".totalPrice")
     totalPrice.innerHTML = "Din varukorg är tom"
     const getTotalPrice = JSON.parse(localStorage.getItem("item"));
@@ -142,7 +145,9 @@ function getTotalPrice() {
        })
 }
 
-
+// this onlick function reads the key "item"'s value and depending on its value it alerts two messages, 
+// if the length of the array is bigger than 0, it alerts the first message 
+// if it's less or equal to 0, it alerts the second message 
 function finish() {
     const cart = JSON.parse(localStorage.getItem("item"))
     if (cart.length > 0) {
@@ -153,6 +158,7 @@ function finish() {
     }
 }
 
+// under progress
 function clear() {
     const buyBtn = document.querySelector(".buyBtn")
     mobileContainer.innerHTML = ""
@@ -161,12 +167,4 @@ function clear() {
     cartNumb.innerHTML = ""
     localStorage.removeItem("item")
     buyBtn.style.display = "none"
-    
 }
-
-
-// Add your code here, remember to brake your code in to smaller function blocks
-// to reduce complexity and increase readability. Each function should have
-// an explainetory comment like the one for this function, see row 22.
-
-// TODO: Remove the console.log and these comments when you've read them.
