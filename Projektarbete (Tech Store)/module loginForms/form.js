@@ -1,7 +1,7 @@
 const signUpDiv = document.querySelector(".signUp");
 const logInDiv = document.querySelector(".logIn");
 
-function logInFunction() {
+
 
     // ----- Elements and attributes to sign in form.
 
@@ -41,10 +41,11 @@ function logInFunction() {
 
     const createNewUserBtn = document.createElement("button");
     createNewUserBtn.setAttribute("class", "createNewUserBtn");
+    createNewUserBtn.setAttribute("type", "button");
     createNewUserBtn.innerHTML = "Skapa ny användare";
     logInForm.appendChild(createNewUserBtn);
     createNewUserBtn.addEventListener("click", createNewUser);
-}
+
 
 
 function createNewUser() {
@@ -82,9 +83,20 @@ function createNewUser() {
     newUserBtn.innerHTML = "Skapa ny";
     signUpForm.appendChild(newUserBtn);
 
-    console.log("hej");
-    return;
+    newUser();
+    return
 }
 
+if (!localStorage.getItem("userCatalogue")) {
+    localStorage.setItem("userCatalogue", JSON.stringify("users"))
+}
 
+let users = [];
 
+function newUser() {
+
+const getUserCatalogue = JSON.parse(localStorage.getItem("userCatalogue"))
+let uNameInput = document.querySelector("newUsernameInput").value
+let uPassInput = document.querySelector("newPasswordInput").value
+if (uNameInput > 0)
+}
