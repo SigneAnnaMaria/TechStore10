@@ -7,6 +7,8 @@
     align-items: center;
 }
 
+/* ----- Css for elements made in "form.js"*/
+
 .logInForm, .signUpForm {
     background-color: #f5f5f5;
     border: solid 1px;
@@ -21,7 +23,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.newUserBtn, .submitLogIn {
+.logInBtn, .createNewUserBtn, .newUserBtn {
     color: #f5f5f5;
     margin-top: 1rem;
     border-radius: 5rem;
@@ -33,12 +35,12 @@
     height: 2.6rem;
 }
 
-.newUserBtn:hover, .submitLogIn:hover {
+.logInBtn:hover, .createNewUserBtn:hover, .newUserBtn:hover {
     background-color: rgb(99,151,237);
     color: white;
 }
 
-.submitLogIn {
+.logInBtn {
     margin: 1.5rem 0 2rem 0;
 }
 

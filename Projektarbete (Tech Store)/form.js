@@ -1,77 +1,90 @@
-// Get elements from login.html
-const signUp = document.querySelector(".signUp")
-const logIn = document.querySelector(".logIn")
+const signUpDiv = document.querySelector(".signUp");
+const logInDiv = document.querySelector(".logIn");
+
+function logInFunction() {
+
+    // ----- Elements and attributes to sign in form.
+
+    const logInForm = document.createElement("form");
+    logInForm.setAttribute("class", "logInForm");
+    logInDiv.appendChild(logInForm);
+
+    const usernameLabel = document.createElement("label");
+    usernameLabel.setAttribute("class", "usernameLabel");
+    usernameLabel.innerHTML = "Användarnamn:";
+    logInForm.appendChild(usernameLabel);
+
+    const usernameInput = document.createElement("input");
+    usernameInput.setAttribute("class", "usernameInput");
+    usernameInput.setAttribute("type", "text");
+    logInForm.appendChild(usernameInput);
+
+    const passwordLabel = document.createElement("label");
+    passwordLabel.setAttribute("class", "passwordLabel");
+    passwordLabel.innerHTML = "Lösenord:";
+    logInForm.appendChild(passwordLabel);
+
+    const passWordInput = document.createElement("input");
+    passWordInput.setAttribute("class", "passWordInput");
+    passWordInput.setAttribute("type", "password");
+    logInForm.appendChild(passWordInput);
+
+    const logInBtn = document.createElement("button");
+    logInBtn.setAttribute("class", "logInBtn");
+    logInBtn.innerHTML = "Logga in";
+    logInForm.appendChild(logInBtn);
+
+    const newUserLabel = document.createElement("label");
+    newUserLabel.setAttribute("class", "newUserLabel");
+    newUserLabel.innerHTML = "Ny här?";
+    logInForm.appendChild(newUserLabel);
+
+    const createNewUserBtn = document.createElement("button");
+    createNewUserBtn.setAttribute("class", "createNewUserBtn");
+    createNewUserBtn.innerHTML = "Skapa ny användare";
+    logInForm.appendChild(createNewUserBtn);
+    createNewUserBtn.addEventListener("click", createNewUser);
+}
 
 
+function createNewUser() {
 
+    logInDiv.style.display = "none";
 
-//elements and attributes to login form.
-const signUpForm = document.createElement("form")
-const pickUN = document.createElement("label")
-const newUN = document.createElement("input")
-const pickPW = document.createElement("label")
-const newPW = document.createElement("input")
-const submitNew = document.createElement("button")
+    // ----- Elements and attributes to sign up form.
 
-signUpForm.setAttribute("class", "signUpForm")
-pickUN.setAttribute("class", "pickUN")
-newUN.setAttribute("class", "newUN")
-newUN.setAttribute("type", "text")
-pickPW.setAttribute("class", "pickPW")
-newPW.setAttribute("class", "newPW")
-newPW.setAttribute("type", "password")
-submitNew.setAttribute("class", "submitNew")
+    const signUpForm = document.createElement("form");
+    signUpForm.setAttribute("class", "signUpForm");
+    signUpDiv.appendChild(signUpForm);
 
-pickUN.innerHTML = "Välj användarnamn:"
-pickPW.innerHTML = "Välj lösenord:"
-submitNew.innerHTML = "Skapa ny"
+    const newUsernameLabel = document.createElement("label");
+    newUsernameLabel.setAttribute("class", "newUsernameLabel");
+    newUsernameLabel.innerHTML = "Välj användarnamn:";
+    signUpForm.appendChild(newUsernameLabel);
 
-signUp.appendChild(signUpForm)
-signUpForm.appendChild(pickUN)
-signUpForm.appendChild(newUN)
-signUpForm.appendChild(pickPW)
-signUpForm.appendChild(newPW)
-signUpForm.appendChild(submitNew)
+    const newUsernameInput = document.createElement("input");
+    newUsernameInput.setAttribute("class", "newUsernameInput");
+    newUsernameInput.setAttribute("type", "text");
+    signUpForm.appendChild(newUsernameInput);
 
-//elements and attributes to sign up form.
-const logInForm = document.createElement("form")
-const writeUN = document.createElement("label")
-const username = document.createElement("input")
-const writePW = document.createElement("label")
-const passWord = document.createElement("input")
-const submitLogIn = document.createElement("button")
-const newUser = document.createElement("label")
-const newUserBtn = document.createElement("button")
+    const newPasswordLabel = document.createElement("label");
+    newPasswordLabel.setAttribute("class", "newPasswordLabel");
+    newPasswordLabel.innerHTML = "Välj lösenord:";
+    signUpForm.appendChild(newPasswordLabel);
 
-logInForm.setAttribute("class", "logInForm")
-writeUN.setAttribute("class", "writeUN")
-username.setAttribute("class", "username")
-username.setAttribute("type", "text")
-writePW.setAttribute("class", "writePW")
-passWord.setAttribute("class", "passWord")
-passWord.setAttribute("type", "password")
-submitLogIn.setAttribute("class", "submitLogIn")
-newUser.setAttribute("class", "newUser")
-newUserBtn.setAttribute("class", "newUserBtn")
+    const newPasswordInput = document.createElement("input");
+    newPasswordInput.setAttribute("class", "newPasswordInput");
+    newPasswordInput.setAttribute("type", "password");
+    signUpForm.appendChild(newPasswordInput);
 
-writeUN.innerHTML = "Användarnamn:"
-writePW.innerHTML = "Lösenord:"
-submitLogIn.innerHTML = "Logga in"
-newUser.innerHTML = "Ny här?"
-newUserBtn.innerHTML = "Skapa ny användare"
-signUp.style.display = "none"
+    const newUserBtn = document.createElement("button");
+    newUserBtn.setAttribute("class", "newUserBtn");
+    newUserBtn.innerHTML = "Skapa ny";
+    signUpForm.appendChild(newUserBtn);
 
-logIn.appendChild(logInForm)
-logInForm.appendChild(writeUN)
-logInForm.appendChild(username)
-logInForm.appendChild(writePW)
-logInForm.appendChild(passWord)
-logInForm.appendChild(submitLogIn)
-logInForm.appendChild(newUser)
-logInForm.appendChild(newUserBtn)
-
-
-
+    console.log("hej");
+    return;
+}
 
 
 
