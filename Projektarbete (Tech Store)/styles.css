@@ -48,7 +48,7 @@ header {
     color: whitesmoke;
 }
 
-.signIn {
+.toLoginBtn {
     margin: 0 0 1rem 1rem;
     height: 2rem;
     width: 8rem;
@@ -58,7 +58,7 @@ header {
     background-color: #212121;
 }
 
-.signIn:hover {
+.toLoginBtn:hover {
     background-color: rgb(99,151,237);
     color: #f5f5f5;
     border-radius: 1rem;
