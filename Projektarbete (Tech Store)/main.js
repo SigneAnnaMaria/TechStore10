@@ -152,9 +152,22 @@ function finish() {
     const cart = JSON.parse(localStorage.getItem("item"))
     if (cart.length > 0) {
         alert("Tack för ditt köp. Välkommen åter!")
+        saveOrderHistory()
         clear()
     } else {
         alert("Din varukorg är tom. Lägg något i varukorgen!")
+    }
+}
+
+function saveOrderHistory() {
+const getOrderHistory = JSON.parse(localStorage.getItem("item"))
+const getUserID = JSON.parse(localStorage.getItem("userCatalogue"))
+const signedInUser = JSON.parse(localStorage.getItem("logedIn"))
+
+for (user of getUserID)
+    if (user.username == signedInUser) {
+        getUserID.push({order: getOrderHistory})
+        
     }
 }
 
@@ -166,5 +179,7 @@ function clear() {
     totalPrice.innerHTML = "Din varukorg är tom"
     cartNumb.innerHTML = ""
     localStorage.removeItem("item")
+    localStorage.setItem("item", JSON.stringify(cart))
     buyBtn.style.display = "none"
+
 }

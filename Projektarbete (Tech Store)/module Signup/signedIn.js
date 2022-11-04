@@ -59,8 +59,14 @@ signedInDiv.appendChild(elementContainer)
 // ----- Function that shows signedInDiv in html and gets the logedIn "name" from LS
 
 function signedInUI() {
+    document.querySelector(".formContainer").style.display = "none"
     signedInDiv.style.display = "block";
     h2.innerHTML = "Välkommen " + JSON.parse (localStorage.getItem ("logedIn"));
+    getOrderHistory()
+}
+
+function getOrderHistory() {
+    
 }
 
 // ----- function that logs out the user and removes the"logedIn" key from LS
