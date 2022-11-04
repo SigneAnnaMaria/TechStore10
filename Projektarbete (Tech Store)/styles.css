@@ -38,6 +38,11 @@ header {
     justify-content: space-evenly;
 }
 
+.cartDiv {
+    display: flex;
+    flex-direction: row;
+}
+
 .cartValue{
     color: whitesmoke;
     font-size: larger;
