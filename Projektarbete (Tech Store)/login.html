@@ -15,12 +15,15 @@
 
     <script src="https://kit.fontawesome.com/06c9e20a7c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="module loginForms/form.css">
+    <link rel="stylesheet" href="module Signup/signedInCss.css">
     <script src="./main.js" defer></script>
+    <script src="module loginForms/form.js" defer></script>
+    <script src="module Signup/signedIn.js" defer></script>
 </head>
-
-<body onload="initSite()">
+<body onload="initCartNum()">
     <header>
-        <h1 class="logoWhite">TechStore</h1>
+        <h1 class="logoWhite"><a class="logoLink" href="index.html">TechStore</a></h1>
         <div class="headerIcons">
             <div class="cartValue"></div>
             <a class="headerCart" href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -28,8 +31,10 @@
     </header>
 
     <main>
-        <div class="logIn"></div>
-        <div class="signUp"></div>
+        <div class="formContainer">
+            <div class="logIn"></div>
+            <div class="signUp"></div>
+        </div>
         <div class="signedIn"></div>
     </main>
 </body>

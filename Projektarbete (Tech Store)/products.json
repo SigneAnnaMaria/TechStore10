@@ -19,5 +19,35 @@
         "description": "Super nice and beautiful smartphone from LG.",
         "image": "assets/LGV30.png",
         "price": 7495
+    },{
+        "title": "Huawei Nova 5T",
+        "description": "Make an impression that lasts with the Huawei Nova 5T smartphone.",
+        "image": "assets/huawei5.png",
+        "price": 1996
+    },{
+        "title": "Motorola Edge 30 Pro",
+        "description": "A powerful smartphone to captivate you.",
+        "image": "assets/motorolaEdge.png",
+        "price": 7990
+    },{
+        "title": "Sony Xperia 1 III",
+        "description": "A smartphone with incredible photo and videography capabilities.",
+        "image": "assets/sony-xperia.png",
+        "price": 12990
+    },{
+        "title": "OnePlus 10 Pro 5G",
+        "description": "Burdenless design philosophy, exclusive materials, and premium unibody experience.",
+        "image": "assets/Ooneplus10.png",
+        "price": 10490
+    },{
+        "title": "Samsung Galaxy S20 FE 5G",
+        "description": "A dynamic multimedia device with a powerful performance.",
+        "image": "assets/Samsungs20.png",
+        "price": 7690
+    },{
+        "title": "iPhone 14 Pro Max",
+        "description": "A magical new way to interact with iPhone.",
+        "image": "assets/iphone14.png",
+        "price": 23690
     }
 ]

@@ -18,13 +18,15 @@
     <script src="./main.js" defer></script>
 </head>
 
-<body onload="initSite()">
+<body onload="initSite(), initCartNum()">
     <header>
-        <h1 class="logoWhite">TechStore</h1>
+        <h1 class="logoWhite"><a class="logoLink" href="index.html">TechStore</a></h1>
         <div class="headerIcons">
             <div class="cartValue"></div>
             <a class="headerCart" href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i></a>
             <a class="headerLogIn" href="login.html"><i class="fa-solid fa-user"></i></a>
+            <button class="toLoginBtn" onclick="window.location='login.html';">Logga in</button>
+
         </div>
     </header>
 
