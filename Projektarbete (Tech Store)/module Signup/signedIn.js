@@ -41,16 +41,10 @@ h4.innerHTML = "Köp historik"
 
 const purchase = document.createElement("div")
 purchase.setAttribute("class", "signed--purchase")
-purchase.innerHTML = "Purchase 1" + "<br />" + "Purchase 1"
-
-const purchase2 = document.createElement("div")
-purchase2.setAttribute("class", "signed--purchase")
-purchase2.innerHTML = "Purchase 2" + "<br />" + "Purchase 2"
 
 elementContainer.appendChild(purchaseHistory)
 purchaseHistory.appendChild(h4)
 purchaseHistory.appendChild(purchase)
-purchaseHistory.appendChild(purchase2)
 
 // ----- Attaches my main div containing its children to its parent div in the login.html-file
 
@@ -66,12 +60,31 @@ function signedInUI() {
 }
 
 function getOrderHistory() {
-    
+    const orders = JSON.parse(localStorage.getItem("orders"))
+    const logedIn = JSON.parse(localStorage.getItem("logedIn"))
+    var sum;
+    orders.forEach((user) => {
+        sum += user.products 
+        if (user.username == logedIn){
+            purchase.innerHTML = sum
+            console.log(user.products)
+        }
+    });
+
+    // for (user of orders) {
+    //     if (user.username == logedIn) {
+    //         const that = 
+    //         // purchase.innerHTML = orders.find(logedIn)
+    //         // console.log("yeeeey")
+    //     }
+    // }
+
 }
 
 // ----- function that logs out the user and removes the"logedIn" key from LS
 
 function logOutFunction() {
+    document.querySelector(".formContainer").style.display = "block"
     localStorage.removeItem ("logedIn");
     logInDiv.style.display = "block";
     signUpDiv.style.display = "none";
