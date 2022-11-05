@@ -160,14 +160,19 @@ function finish() {
 }
 
 function saveOrderHistory() {
-const getOrderHistory = JSON.parse(localStorage.getItem("item"))
-const getUserID = JSON.parse(localStorage.getItem("userCatalogue"))
-const signedInUser = JSON.parse(localStorage.getItem("logedIn"))
+    const getOrderHistory = JSON.parse(localStorage.getItem("item"))
+    const signedInUser = JSON.parse(localStorage.getItem("logedIn"))
+    const order = {
+        username: signedInUser,
+        products: getOrderHistory
+    }
 
-for (user of getUserID)
-    if (user.username == signedInUser) {
-        getUserID.push({order: getOrderHistory})
-        
+    if (!localStorage.getItem("orders")) {
+        localStorage.setItem("orders", JSON.stringify([order]))
+    } else {
+        const orders = JSON.parse( localStorage.getItem("orders"))
+        orders.push (order)
+        localStorage.setItem("orders", JSON.stringify(orders))
     }
 }
 
