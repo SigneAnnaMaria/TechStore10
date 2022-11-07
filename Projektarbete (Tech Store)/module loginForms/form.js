@@ -313,7 +313,8 @@ function getOrderHistory() {
 }
 
 function faild () {
-    userBlanc.innerHTML = "Användarnamn eller lösenord finns inte. Försök igen";
+    userBlanc.innerHTML = "Fel, försök igen";
+    userBlanc.style.color = "red"
     logInForm.appendChild(userBlanc);
 }
 
@@ -326,6 +327,8 @@ function logOutFunction() {
     signedIn.style.display = "none";
     toLoginBtn.style.display = "block"
     headerLogIn.style.display = "none"
+    usernameInput.value = ""
+    passWordInput.value = ""
 }
 
 
