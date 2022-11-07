@@ -9,6 +9,9 @@ const cart = [];
 // A div container where we store our products from cart and make them visible.
 const mobileContainer = document.querySelector(".mobileContainer")
 
+const toLoginBtn = document.querySelector(".toLoginBtn")
+const headerLogIn = document.querySelector(".headerLogIn")
+
 // Get products from the json file and store it in a global variable 
 function loadProducts() {
     fetch("./products.json")
@@ -27,7 +30,16 @@ function initSite() {
     if (!localStorage.getItem("item")){
         localStorage.setItem("item", JSON.stringify(cart));
     }
+
+    checkifuser()
     
+}
+
+function checkifuser() {
+    if (localStorage.getItem("logedIn")) {
+        toLoginBtn.style.display = "none"
+        headerLogIn.style.display = "block"
+    }
 }
 
 // Uses the loaded products data to create a visible product list on the website 

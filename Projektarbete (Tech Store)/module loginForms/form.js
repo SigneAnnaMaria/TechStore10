@@ -7,7 +7,8 @@ const formContainer = document.querySelector(".formContainer")
 const elementContainer = document.createElement("div")
 elementContainer.setAttribute("class", "signed--elementContainer")
 const purchaseHistory = document.createElement("div")
-    purchaseHistory.setAttribute("class", "signed--purchaseHistory")
+purchaseHistory.setAttribute("class", "signed--purchaseHistory")
+
 
 // ----- makes sure that the "signedIn.js" file fetch befor driving the "init" function
 
@@ -17,6 +18,11 @@ const purchaseHistory = document.createElement("div")
 function init() { 
     if (localStorage.getItem ("logedIn")){ 
         success();
+    }
+
+    if (localStorage.getItem("logedIn")) {
+        toLoginBtn.style.display = "none"
+        headerLogIn.style.display = "block"
     }
 }
 // ----- where all of the new users stored
@@ -199,6 +205,7 @@ function success () {
     signedIn.style.display = "block";
     logInDiv.style.display = "none";
     signUpDiv.style.display = "none";
+   
 
     // ----- Main box to store my child divs
 
@@ -254,6 +261,7 @@ function success () {
 
 
     signedInUI()
+    checkifuser()
 }
 
 function signedInUI() {
@@ -316,6 +324,8 @@ function logOutFunction() {
     logInDiv.style.display = "block";
     signUpDiv.style.display = "none";
     signedIn.style.display = "none";
+    toLoginBtn.style.display = "block"
+    headerLogIn.style.display = "none"
 }
 
 
