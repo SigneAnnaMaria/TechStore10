@@ -143,6 +143,7 @@ function getTotalPrice() {
             sum += product.price;
             totalPrice.innerHTML = "Totalt pris: " + sum + " kr";
        })
+       return sum
 }
 
 // this onlick function reads the key "item"'s value and depending on its value it alerts two messages, 
@@ -164,7 +165,8 @@ function saveOrderHistory() {
     const signedInUser = JSON.parse(localStorage.getItem("logedIn"))
     const order = {
         username: signedInUser,
-        products: getOrderHistory
+        products: getOrderHistory,
+        totalPrice: getTotalPrice()
     }
 
     if (!localStorage.getItem("orders")) {
