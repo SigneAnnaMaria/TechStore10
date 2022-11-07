@@ -148,14 +148,14 @@ function getTotalPrice() {
 
 // this onlick function reads the key "item"'s value and depending on its value it alerts two messages, 
 // if the length of the array is bigger than 0, it alerts the first message 
-// if it's less or equal to 0, it alerts the second message 
+// if it's less or equal to 0, it alerts the second message    
 function finish() {
     const cart = JSON.parse(localStorage.getItem("item"))
     if (cart.length > 0) {
         alert("Tack för ditt köp. Välkommen åter!")
         saveOrderHistory()
         clear()
-    } else {
+    } else { 
         alert("Din varukorg är tom. Lägg något i varukorgen!")
     }
 }

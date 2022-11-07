@@ -282,7 +282,7 @@ function getOrderHistory() {
                 const description = document.createElement("p")
                 const price = document.createElement("p")
                 const totalPrice = document.createElement("p")
-                // var sum = 0;
+                // var sum = 0;  
                 // sum += product.price;
                 title.innerHTML = "Product: " + product.title
                 description.innerHTML = product.description

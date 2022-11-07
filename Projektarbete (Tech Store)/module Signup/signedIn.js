@@ -18,7 +18,7 @@
 // btn.setAttribute("class", "signed--btn")
 // btn.innerHTML = "Logga ut"
 // btn.addEventListener("click", logOutFunction)
-
+  
 // elementContainer.appendChild(userInfo)
 // userInfo.appendChild(h2)
 // userInfo.appendChild(btn)
