@@ -141,6 +141,14 @@ header {
     width: 24rem;
 }
 
+#img4 {
+    width: 15rem;
+}
+
+#img5, #img6, #img7, #img8, #img9, #img10 {
+    width: 24rem
+}
+
 /* --------------------- Cart Css */
 
 .headerLogIn {
